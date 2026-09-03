@@ -35,7 +35,7 @@ jobs:
       contents: write # move the v<major> tag that the Marketplace Action reads
       id-token: write # OIDC for npm Trusted Publishing + provenance
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - uses: pnpm/action-setup@v6
       # No registry-url: it makes setup-node write a placeholder authToken into
       # .npmrc, which forces token auth and 404s. Without it npm uses the default
