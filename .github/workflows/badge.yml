@@ -16,12 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run badge
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run badge
       - name: Commit badge if changed
         run: |
           git config user.name "github-actions[bot]"
